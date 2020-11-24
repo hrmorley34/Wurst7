@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 - 2020 | Alexander01998 | All rights reserved.
+ * Copyright (c) 2014-2020 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -22,7 +22,7 @@ import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.client.gui.hud.ChatHudLine;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
-import net.wurstclient.WurstClient;
+import net.wurstclient.event.EventManager;
 import net.wurstclient.events.ChatInputListener.ChatInputEvent;
 
 @Mixin(ChatHud.class)
@@ -42,7 +42,7 @@ public class ChatHudMixin extends DrawableHelper
 	{
 		ChatInputEvent event = new ChatInputEvent(chatText, visibleMessages);
 		
-		WurstClient.INSTANCE.getEventManager().fire(event);
+		EventManager.fire(event);
 		if(event.isCancelled())
 		{
 			ci.cancel();

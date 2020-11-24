@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 - 2020 | Alexander01998 | All rights reserved.
+ * Copyright (c) 2014-2020 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -166,6 +166,13 @@ public final class ForceOpHack extends Hack implements ChatInputListener
 	
 	private void runForceOP(int delay, boolean waitForMsg)
 	{
+		// abort if disconnected before pressing start
+		if(MC.player == null)
+		{
+			setEnabled(false);
+			return;
+		}
+		
 		MC.player.sendChatMessage("/login " + MC.getSession().getUsername());
 		lastPW = 0;
 		sendIndexToDialog();

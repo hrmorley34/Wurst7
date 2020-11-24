@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 - 2020 | Alexander01998 | All rights reserved.
+ * Copyright (c) 2014-2020 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -49,12 +49,8 @@ public class AbstractBlockStateMixin extends State<Block, BlockState>
 	private void onIsFullCube(BlockView world, BlockPos pos,
 		CallbackInfoReturnable<Boolean> cir)
 	{
-		EventManager eventManager = WurstClient.INSTANCE.getEventManager();
-		if(eventManager == null)
-			return;
-		
 		IsNormalCubeEvent event = new IsNormalCubeEvent();
-		eventManager.fire(event);
+		EventManager.fire(event);
 		
 		cir.setReturnValue(cir.getReturnValue() && !event.isCancelled());
 	}
@@ -70,7 +66,7 @@ public class AbstractBlockStateMixin extends State<Block, BlockState>
 			new GetAmbientOcclusionLightLevelEvent((BlockState)(Object)this,
 				cir.getReturnValueF());
 		
-		WurstClient.INSTANCE.getEventManager().fire(event);
+		EventManager.fire(event);
 		cir.setReturnValue(event.getLightLevel());
 	}
 	
