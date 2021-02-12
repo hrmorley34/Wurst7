@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 - 2020 | Alexander01998 | All rights reserved.
+ * Copyright (c) 2014-2021 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -39,12 +39,8 @@ public abstract class CactusBlockMixin extends Block
 		BlockView blockView_1, BlockPos blockPos_1,
 		ShapeContext entityContext_1, CallbackInfoReturnable<VoxelShape> cir)
 	{
-		EventManager events = WurstClient.INSTANCE.getEventManager();
-		if(events == null)
-			return;
-		
 		CactusCollisionShapeEvent event = new CactusCollisionShapeEvent();
-		events.fire(event);
+		EventManager.fire(event);
 		
 		VoxelShape collisionShape = event.getCollisionShape();
 		if(collisionShape != null)

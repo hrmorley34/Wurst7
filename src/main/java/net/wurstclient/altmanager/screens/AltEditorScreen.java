@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 - 2020 | Alexander01998 | All rights reserved.
+ * Copyright (c) 2014-2021 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -283,7 +284,7 @@ public abstract class AltEditorScreen extends Screen
 	{
 		URL profileURL =
 			URI.create("https://api.mojang.com/users/profiles/minecraft/")
-				.resolve(username).toURL();
+				.resolve(URLEncoder.encode(username, "UTF-8")).toURL();
 		
 		try(InputStream profileInputStream = profileURL.openStream())
 		{

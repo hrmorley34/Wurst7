@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 - 2020 | Alexander01998 | All rights reserved.
+ * Copyright (c) 2014-2021 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -19,7 +19,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.s2c.play.*;
 import net.minecraft.text.Text;
-import net.wurstclient.WurstClient;
+import net.wurstclient.event.EventManager;
 import net.wurstclient.events.PacketOutputListener.PacketOutputEvent;
 
 @Mixin(ClientPlayNetworkHandler.class)
@@ -31,7 +31,7 @@ public class ClientPlayNetworkHandlerMixin implements ClientPlayPacketListener
 	private void onSendPacket(Packet<?> packet, CallbackInfo ci)
 	{
 		PacketOutputEvent event = new PacketOutputEvent(packet);
-		WurstClient.INSTANCE.getEventManager().fire(event);
+		EventManager.fire(event);
 		
 		if(event.isCancelled())
 			ci.cancel();
@@ -173,7 +173,7 @@ public class ClientPlayNetworkHandlerMixin implements ClientPlayPacketListener
 	
 	@Shadow
 	@Override
-	public void onGuiActionConfirm(ConfirmGuiActionS2CPacket var1)
+	public void onConfirmScreenAction(ConfirmScreenActionS2CPacket var1)
 	{
 		
 	}
