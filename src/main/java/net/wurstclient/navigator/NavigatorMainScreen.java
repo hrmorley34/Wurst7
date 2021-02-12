@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2020 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2021 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -69,10 +69,6 @@ public final class NavigatorMainScreen extends NavigatorScreen
 	@Override
 	protected void onKeyPress(int keyCode, int scanCode, int int_3)
 	{
-		if(keyCode == GLFW.GLFW_KEY_BACKSPACE)
-			if(clickTimer == -1)
-				WurstClient.MC.openScreen((Screen)null);
-			
 		if(keyCode == GLFW.GLFW_KEY_ENTER)
 			leftClick(selectedFeature);
 		

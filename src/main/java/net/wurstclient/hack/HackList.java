@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2020 Wurst-Imperium and contributors.
+ * Copyright (c) 2014-2021 Wurst-Imperium and contributors.
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -125,6 +125,7 @@ public final class HackList implements UpdateListener
 	public final NoWebHack noWebHack = new NoWebHack();
 	public final NukerHack nukerHack = new NukerHack();
 	public final NukerLegitHack nukerLegitHack = new NukerLegitHack();
+	public final OpenWaterEspHack openWaterEspHack = new OpenWaterEspHack();
 	public final OverlayHack overlayHack = new OverlayHack();
 	public final PanicHack panicHack = new PanicHack();
 	public final ParkourHack parkourHack = new ParkourHack();
@@ -149,6 +150,7 @@ public final class HackList implements UpdateListener
 	public final SpiderHack spiderHack = new SpiderHack();
 	public final StepHack stepHack = new StepHack();
 	public final ThrowHack throwHack = new ThrowHack();
+	public final TillauraHack tillauraHack = new TillauraHack();
 	public final TimerHack timerHack = new TimerHack();
 	public final TiredHack tiredHack = new TiredHack();
 	public final TooManyHaxHack tooManyHaxHack = new TooManyHaxHack();
